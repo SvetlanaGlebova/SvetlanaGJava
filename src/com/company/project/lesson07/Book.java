@@ -4,6 +4,7 @@ public class Book {
     private String name; //null
     private boolean isPublished; //false
     // private Author author;
+    private int numberOfAuthors;
 
     public Book(String name){
         setName(name);
@@ -22,4 +23,9 @@ public class Book {
         return name;
 
     }
+    public void addAddAuthor (Author author){
+        for (int numberOfAuthors; numberOfAuthors >=1; numberOfAuthors <5);
+    if (author == null) return;
+
+
 }

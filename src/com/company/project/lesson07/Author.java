@@ -1,11 +1,12 @@
 package com.company.project.lesson07;
 
-import java.time.LocalDate;
-
 public class Author {
     //свойства, поля, атрибуты
     public long id; //значение по умолчанию 0
     public String name;
+    public int[] authors = numberOfAythors;
+
+    public boolean volume;
     public Author(long authorId){
         id = authorId;
     }
@@ -26,5 +27,7 @@ public class Author {
         if (prefix == null) return;
         System.out.println(prefix + "Автор: id= " + id + ", name= " + name);
     }
+
+
 
 }
