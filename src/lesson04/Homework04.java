@@ -60,7 +60,7 @@ public class Homework04 {
                 if (scannerNumber == 0) {
                 number = (number + number)/ 2;
                 System.out.println("Число равно " + number);
-                else (scannerNumber == 0);
+                //else (scannerNumber == 0);
             }
         }
 
