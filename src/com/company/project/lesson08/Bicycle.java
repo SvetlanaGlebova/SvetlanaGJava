@@ -30,4 +30,9 @@ public class Bicycle extends Vehicle {
     public String getType() {
         return type;
     }
+
+    @Override
+    public void stop(){
+
+    }
 }

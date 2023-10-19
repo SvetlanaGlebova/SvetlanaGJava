@@ -23,9 +23,9 @@ public class Book {
         return name;
 
     }
-    public void addAddAuthor (Author author){
-        for (int numberOfAuthors; numberOfAuthors >=1; numberOfAuthors <5);
-    if (author == null) return;
+    //public void addAddAuthor (Author author){
+       // for (int numberOfAuthors; numberOfAuthors >=1; numberOfAuthors <5);
+    //if (author == null) return;
 
 
 }

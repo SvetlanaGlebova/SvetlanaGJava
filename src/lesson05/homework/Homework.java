@@ -50,17 +50,17 @@ public static void main(String[] args) {
     int [] task04new = new int[4];
     int i, j;
 
-    for (int sum)
-            for (int i = 0; i < task04.lenght; i++){
-        for (int j = i + 4; j < task04.length; j++);{
-
-                    for (int sumtask04 : task04);
-                    sumtask04 += sum1;
-                    if (sumtask04 > sumtask04++)
-                System.out.println("Максимальная сумма" + "sumtask04");
-            }
-        }
-    }
+//    for (int sum)
+//            for (int i = 0; i < task04.lenght; i++){
+//        for (int j = i + 4; j < task04.length; j++);{
+//
+//                    for (int sumtask04 : task04);
+//                    sumtask04 += sum1;
+//                    if (sumtask04 > sumtask04++)
+//                System.out.println("Максимальная сумма" + "sumtask04");
+//            }
+//        }
+//    }
 }
 }
 
