@@ -1,2 +1,4 @@
-package com.company.project.lesson10;public class hometask {
+package com.company.project.lesson10;
+
+public class Hometask {
 }

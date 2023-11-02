@@ -1,8 +1,8 @@
-package com.company.project;
+package com.company.project.lesson13;
 
 import com.company.project.lesson08.Vehicle;
 
-public class lesson13 {
+public class Lesson13 {
     /*switch (s) {
         case "A" -> System.out.println("A");
         case "B" -> System.out.println("B");*/

@@ -41,4 +41,8 @@ abstract public class Vehicle {
 
     //абстрактные методы - методы без реализации
     public abstract void stop();
+
+    public boolean getNumberOfWheels() {
+        return false;
+    }
 }
