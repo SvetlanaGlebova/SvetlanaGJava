@@ -1,5 +1,5 @@
 package com.company.project.lesson22.less2Homework;
 
-interface AppLoggerTask {
+interface UppLoggerTask {
     void log (String message);
 }

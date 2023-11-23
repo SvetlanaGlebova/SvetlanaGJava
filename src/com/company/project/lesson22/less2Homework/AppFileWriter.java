@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
-public class AppFileWriter implements AppLoggerTask {
+public class AppFileWriter implements UppLoggerTask {
 private final String fileName;
 
     public AppFileWriter(String fileName) {

@@ -1,9 +1,9 @@
 package com.company.project.lesson22.less2Homework;
 
-public class Upper implements AppLoggerTask {
-    private final AppLoggerTask logger;
+public class Upper implements UppLoggerTask {
+    private final UppLoggerTask logger;
 
-    public Upper(AppLoggerTask logger) {
+    public Upper(UppLoggerTask logger) {
         this.logger = logger;
     }
 

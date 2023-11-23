@@ -1,9 +1,9 @@
 package com.company.project.lesson22.less2Homework;
 
-    public class Delimiter implements AppLoggerTask {
-        private final AppLoggerTask logger;
+    public class Delimiter implements UppLoggerTask {
+        private final UppLoggerTask logger;
 
-        public Delimiter(AppLoggerTask logger) {
+        public Delimiter(UppLoggerTask logger) {
             this.logger = logger;
         }
 
