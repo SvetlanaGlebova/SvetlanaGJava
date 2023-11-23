@@ -1,7 +1,7 @@
 package com.company.project.lesson09;
 
 public class Task {
-    public static void main(String[] args) {
+    public void main(String[] args) {
         Department department01 = new Department();
         Department department02 = new Department();
         department02.setHead(department01);
@@ -14,6 +14,8 @@ public class Task {
         //кому подчиняется
         private Department head;
 
+        public void setHead(Department department01) {
+        }
     }
 }
  

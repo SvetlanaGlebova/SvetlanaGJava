@@ -1,6 +1,6 @@
 package com.company.project.lesson10;
 
-import java.util.Arrays;
+/*import java.util.Arrays;
 import java.util.Objects;
 
 public class Wolf {
@@ -21,4 +21,4 @@ public class Wolf {
             return Objects.equals(color, wolf.color);
         }
     }
-}
+}*/

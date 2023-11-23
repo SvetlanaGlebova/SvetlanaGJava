@@ -4,6 +4,7 @@ public class Author {
     //свойства, поля, атрибуты
     public long id; //значение по умолчанию 0
     public String name;
+    private int[] numberOfAythors;
     public int[] authors = numberOfAythors;
 
     public boolean volume;

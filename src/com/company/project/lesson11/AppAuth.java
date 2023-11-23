@@ -1,8 +1,8 @@
 package com.company.project.lesson11;
 
-class FormAuth extends AppAuth{}
-public /*final*/ /*sealed*/ non-sealed class AppAuth implements Auth /*permits FormAuth, TokenAuth*/{
-    Auth auth;
+/*class FormAuth extends AppAuth{}
+public /*final*/ /*sealednon-sealed class AppAuth implements Auth /*permits FormAuth, TokenAuth*/
+   /* Auth auth;
     @Override
     public boolean login(String username, String password) {
         auth = new AppAuth();
@@ -13,4 +13,4 @@ public /*final*/ /*sealed*/ non-sealed class AppAuth implements Auth /*permits F
     public boolean logout() {
         return false;
     }
-}
+}*/

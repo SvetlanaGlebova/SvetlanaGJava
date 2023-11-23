@@ -28,25 +28,41 @@ public class Task01 {
                 .collect(Collectors.groupingBy(Student::getGender));
         System.out.println(studentsByGender.get(Student.Gender.MALE));
         //  2. Найти средний возраст учеников
-double averageAge = students.stream()
-        .mapToDouble(student -> LocalDate.now().getYear() - student.getBirth().getYear())
-        .average()
-        .orElse(0);
+        double averageAge = students.stream()
+                .mapToDouble(student -> LocalDate.now().getYear() - student.getBirth().getYear())
+                .average()
+                .orElse(0);
 
         //  3. Найти самого младшего ученика - Stream -> min(Comparator<Student>): int compare(T o1, T o2);
-        Optional <Student> youngestStudent = students.stream()
+        Optional<Student> youngestStudent = students.stream()
                 .min((student1, student2) -> student2.getBirth().compareTo(student1.getBirth()));
         youngestStudent.ifPresent(student -> System.out.println("Самый младший студент" + student));
 
         //  5. Собрать учеников в группы по году рождения, результат - Map<Integer, List<Student>>
+        Map<Integer, List<Student>> dateBith = students.stream()
+                .collect(Collectors.groupingBy(student -> student.getBirth().getYear()));
 
         //  6. Отсортировать по полу, дате рождения, имени (в обратном порядке), собрать в список (ArrayList)
+        List<Student> filtered = students.stream()
+                .sorted(Comparator
+                        .comparing(Student::getGender)
+                        .thenComparing(Student::getBirth)
+                        .thenComparing(Student::getName, Comparator.reverseOrder()))
+                        .toList();
+        ArrayList<Student> filtered01 = new ArrayList<>(filtered);
 
         // 7. Собрать в список всех учеников с именем == someName
+String someName = "Петр";
+List<Student> studentWithSomeName = students.stream()
+        .filter(student -> student.getName().equals(someName))
+        .toList();
 
         //  8. Собрать Map<Student.Gender, Integer>,
         //  где Student.Gender - пол,
         //  Integer - суммарный возраст учеников данного пола
+Map<Student.Gender, Integer> ageByGender = students.stream()
+        .collect(Collectors.groupingBy(Student::getGender, Collectors.summingInt(student ->
+                LocalDate.now().getYear() - student.getBirth().getYear())));
 
     }
 }

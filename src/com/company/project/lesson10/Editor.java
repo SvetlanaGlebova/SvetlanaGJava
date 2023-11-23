@@ -1,6 +1,6 @@
 package com.company.project.lesson10;
 
-public class Editor implements Cloneable {
+/*public class Editor implements Cloneable {
     private Drawable drawable;
 
     public Editor(Drawable drawable) { // конструктор
@@ -23,4 +23,4 @@ public class Editor implements Cloneable {
         }
         return clone;
     }
-}
+}*/

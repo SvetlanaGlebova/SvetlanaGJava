@@ -3,7 +3,7 @@ package com.company.project.lesson07;
 public class Book {
     private String name; //null
     private boolean isPublished; //false
-    // private Author author;
+    // private Author;
     private int numberOfAuthors;
 
     public Book(String name){
@@ -23,7 +23,7 @@ public class Book {
         return name;
 
     }
-    //public void addAddAuthor (Author author){
+    //public void addAddAuthor (Author){
        // for (int numberOfAuthors; numberOfAuthors >=1; numberOfAuthors <5);
     //if (author == null) return;
 

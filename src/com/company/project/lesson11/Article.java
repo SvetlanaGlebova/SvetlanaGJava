@@ -1,5 +1,7 @@
 package com.company.project.lesson11;
 
+/*import com.company.project.lesson11.Homework.Planets;
+
 public class Article {
     private Country country; //null
 
@@ -14,5 +16,8 @@ public class Article {
     public void setCountry(Country country) {
         this.country = country;
     }
-}
+
+    public Planets getPlanets() {
+    }
+}*/
 

@@ -1,5 +1,5 @@
 
-package lesson05.homework;
+/*package lesson05.homework;
 import java.util.Scanner;
 public class Homework {
 //    ### Задача #3
@@ -62,5 +62,5 @@ public static void main(String[] args) {
 //        }
 //    }
 }
-}
+}*/
 

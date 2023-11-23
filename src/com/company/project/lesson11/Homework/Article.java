@@ -1,6 +1,6 @@
 package com.company.project.lesson11.Homework;
 
-public class Article {
+/*public class Article {
     private Planets planet;
 
     public Article(Planets Planets earth) {
@@ -14,4 +14,4 @@ public class Article {
     public void setPlanet(Planets planet) {
         this.planet = planet;
     }
-}
+}*/
