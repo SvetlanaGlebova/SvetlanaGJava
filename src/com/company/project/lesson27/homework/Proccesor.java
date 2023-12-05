@@ -5,11 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class FileProccesor implements Runnable {
+public class Proccesor implements Runnable {
     private String fileName;
     private static int messageCount;
 
-    public FileProccesor(String fileName) {
+    public Proccesor(String fileName) {
         this.fileName = fileName;
     }
 
@@ -23,7 +23,7 @@ public class FileProccesor implements Runnable {
                     int priority = Integer.parseInt(strings[1]);
 
                     if (priority >= 7) {
-                        synchronized (FileProccesor.class) {
+                        synchronized (Proccesor.class) {
                             messageCount ++;
                         }
                         System.out.println(line);
