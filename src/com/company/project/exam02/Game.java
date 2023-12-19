@@ -1,0 +1,131 @@
+package com.company.project.exam02;
+
+import com.company.project.exam02.commands.SaveGameCommand;
+
+import java.io.*;
+import java.util.*;
+
+public class Game {
+    String username;
+    Map<String, Paragraph> paragraphs;
+    Paragraph currentParagraph;
+    private static final Map<String, String> MY_MAP = new HashMap<String, String>() {
+        {
+            put("Отправиться на поиски", "3");
+            put("Вернуться домой", "2");
+            put("Попытаться разузнать о Бельчонке у лесных жителей", "4");
+            put("Искать Бельчонка в одиночку", "5");
+            put("Расспросить Сову", "6");
+            put("Расспросить Волка", "7");
+            put("Поверить Сове и отправиться в глубь леса", "8");
+            put("Сове не стоит верить -> Искать Бельчонка в одиночку", "5");
+            put("Волк прав -> Вернуться домой", "2");
+            put("-> Искать Бельчонка в одиночку", "5");
+            put("Нет, потрачено слишком много времени, нужно идти дальше -> Искать Бельчонка в одиночку", "5");
+            put("Нужно воспользоваться шансом и раздобыть мед", "9");
+            put("Подождать, вдруг пчелы улетят", "10");
+            put("Нужно попытаться выкрасть мед немедленно", "11");
+            put("Поесть емного и передохнуть", "12");
+            put("Скорее отнести мед Медвежонку", "13");
+            put("Медвежонок ничего не знает, нужно продолжить поиски -> Искать Бельчонкав одиночку", "5");
+            put("Может быть он и прав и Личенок просто паникует -> Вернуться домой", "2");
+        }
+
+    };
+
+    public Game(String username) {
+        this.username = username;
+        this.paragraphs = new HashMap<>();
+    }
+
+    void loadParagraphs() {
+        try {
+            File file = new File("src/com/company/project/exam02/paragraphs.txt");
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] parts = line.split("\\|");
+                String id = parts[0];
+                String text = parts[1];
+                Map<String, String> options = new HashMap<>();
+                for (int i = 2; i < parts.length; i += 2) {
+                    options.put(parts[i], parts[i + 1]);
+                }
+                paragraphs.put(id, new Paragraph(id, text, options));
+
+            }
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void exit() {
+        System.exit(0);
+    }
+
+    public void loadGameState() {
+        try {
+            File file = new File("GameFileState.txt");
+            Scanner scanner = new Scanner(file);
+            scanner.close();
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void back() {
+    }
+
+    public void saveGameState() {
+        //создаем папку для сохранения данных пользователя, если ее нет
+       // File userFolder = new File(this.username.toLowerCase());
+        //if (!userFolder.exists()) {
+        //    userFolder.mkdir();
+        //}
+        //создаем файл для сохранения данных
+        File file = new File(this.username.toLowerCase() + "-save.txt");
+        try (PrintWriter printWriter = new PrintWriter(new FileWriter(file, false))){
+            printWriter.println("lastParagraph:" + this.currentParagraph.id);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void start() {
+        loadParagraphs();
+        currentParagraph = paragraphs.get("1");
+        play();
+
+    }
+
+    void play() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println(currentParagraph.text);
+            currentParagraph.options.forEach((key, value) -> System.out.println(key + ". " + value));
+            System.out.println("M. Main menu");
+
+            String choice = scanner.next().toUpperCase();
+
+            if (choice.equals("M")) {
+                saveGameState();
+                return;
+
+            } else if (MY_MAP.containsKey(currentParagraph.options.get(choice))) {
+                currentParagraph = paragraphs.get(MY_MAP.get(currentParagraph.options.get(choice)));
+            } else {
+                System.out.println("Invalid choice. Please try again.");
+            }
+            if (currentParagraph.options.isEmpty()) {
+                System.out.println(currentParagraph.text);
+                System.out.println("Game Over. You reached the end.");
+                saveGameState();
+                break;
+            }
+        }
+    }
+}
