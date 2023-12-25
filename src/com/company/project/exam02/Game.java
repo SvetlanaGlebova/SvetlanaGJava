@@ -61,32 +61,55 @@ public class Game {
     }
 
     public void exit() {
+        System.out.println("Спасибо за игру! До встречи!");
         System.exit(0);
     }
 
     public void loadGameState() {
+        loadParagraphs();
         try {
-            File file = new File("GameFileState.txt");
+            File file = new File(this.username.toLowerCase() + "-save.txt");
             Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] parts = line.split(":");
+                if (parts.length == 2 && parts[0].equals("lastParagraph")) {
+                    String lastParagraphId = parts[1].trim();//trim - удаляет все пробелы
+
+                    if (paragraphs.containsKey(lastParagraphId)) {
+                        currentParagraph = paragraphs.get(lastParagraphId);
+                        System.out.println("Игра загружена с параграфа " + lastParagraphId);
+                        play();
+                    }
+                    break;
+                }
+
+            }
             scanner.close();
 
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
     public void back() {
+        File file = new File (this.username.toLowerCase() + "-save.txt");
+        if (file.exists()){
+            loadGameState();
+        } else {
+            start();
+        }
     }
 
     public void saveGameState() {
         //создаем папку для сохранения данных пользователя, если ее нет
-       // File userFolder = new File(this.username.toLowerCase());
+        // File userFolder = new File(this.username.toLowerCase());
         //if (!userFolder.exists()) {
         //    userFolder.mkdir();
         //}
         //создаем файл для сохранения данных
         File file = new File(this.username.toLowerCase() + "-save.txt");
-        try (PrintWriter printWriter = new PrintWriter(new FileWriter(file, false))){
+        try (PrintWriter printWriter = new PrintWriter(new FileWriter(file, false))) {
             printWriter.println("lastParagraph:" + this.currentParagraph.id);
 
         } catch (IOException e) {
